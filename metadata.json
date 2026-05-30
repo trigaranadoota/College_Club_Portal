@@ -1,0 +1,8 @@
+{
+  "name": "PESCE Club Management Portal",
+  "description": "Discover clubs, register memberships, organize events, and manage applications at PES College of Engineering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
