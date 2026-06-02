@@ -283,35 +283,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* STATISTICS SECTION */}
-            <section className="max-w-7xl mx-auto px-6 lg:px-8">
-              <div className="glass-effect card-shadow border border-slate-250/50 dark:border-slate-800/50 py-10 rounded-3xl grid grid-cols-1 sm:grid-cols-3 gap-8 text-center px-4">
-                <div className="space-y-1">
-                  <span className="block text-4xl font-extrabold font-mono text-blue-600 dark:text-blue-400">
-                    20+ Clubs
-                  </span>
-                  <p className="text-xs uppercase font-bold tracking-widest text-slate-500 dark:text-slate-450">
-                    Technical & Literature Societies
-                  </p>
-                </div>
-                <div className="space-y-1 sm:border-x sm:border-slate-200/55 dark:sm:border-slate-800/40">
-                  <span className="block text-4xl font-extrabold font-mono text-indigo-600 dark:text-indigo-400 font-sans">
-                    1500+ Members
-                  </span>
-                  <p className="text-xs uppercase font-bold tracking-widest text-slate-500 dark:text-slate-450">
-                    Registered engineering students
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <span className="block text-4xl font-extrabold font-mono text-emerald-600 dark:text-emerald-450">
-                    100+ Events
-                  </span>
-                  <p className="text-xs uppercase font-bold tracking-widest text-slate-500 dark:text-slate-450">
-                    Workshops & Hackfests Conducted
-                  </p>
-                </div>
-              </div>
-            </section>
+
 
             {/* ABOUT CLUBS AT PESCE */}
             <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -350,57 +322,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* FEATURED CLUBS */}
-            <section className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#1d4ed8] dark:text-blue-400 font-mono">Curated Collections</span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white font-display">Featured Student Clubs</h3>
-                </div>
-                <button
-                  onClick={() => setCurrentTab('clubs')}
-                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1 cursor-pointer"
-                >
-                  <span>See all {clubs.length} clubs</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {clubs.slice(0, 3).map((club) => (
-                  <div key={club.id} className="p-6 glass-effect border border-slate-205/40 dark:border-slate-800/45 rounded-3xl card-shadow flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/20">
-                    <div>
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="w-12 h-12 rounded-xl border border-slate-150 overflow-hidden shrink-0 bg-white shadow-sm">
-                          <img src={club.logo} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
-                        </div>
-                        <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100/40 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                          {club.category}
-                        </span>
-                      </div>
-
-                      <h4 className="text-sm font-bold text-slate-900 dark:text-white leading-tight">
-                        {club.name}
-                      </h4>
-
-                      <p className="text-xs text-slate-500 mt-2.5 leading-relaxed line-clamp-3 dark:text-slate-400">
-                        {club.shortDescription}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 mt-4 border-t border-slate-100/60 dark:border-slate-800/60 flex justify-between items-center text-xs">
-                      <span className="text-[10px] font-mono text-slate-400">Criteria: {club.requirements.substring(0, 15)}...</span>
-                      <button
-                        onClick={() => setSelectedClub(club)}
-                        className="text-xs text-blue-600 dark:text-blue-400 hover:underline font-semibold cursor-pointer"
-                      >
-                        Details
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
 
             {/* UPCOMING CALENDAR EVENTS HIGHLIGHT */}
             <section className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
@@ -473,37 +395,7 @@ export default function App() {
               )}
             </section>
 
-            {/* STUDENT SUCCESS STORIES */}
-            <section className="bg-slate-100 dark:bg-slate-900 border-y border-slate-205 dark:border-slate-800 transition-colors py-12">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 animate-none">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 font-mono">Student voices</span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white font-display mt-0.5">Student Success Stories</h3>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
-                  <div className="p-6 bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-805 space-y-3">
-                    <p className="text-xs text-slate-500 italic leading-relaxed">
-                      &ldquo;Joining GDSC PESCE gave me actual team lead experience. Working on coding bootstrap classes, hosting bootcamps, and managing database state modules directly landed me a Product Engineer package at an outstanding tech firm!&rdquo;
-                    </p>
-                    <div className="text-xs">
-                      <span className="font-bold text-slate-800 dark:text-white block">Chetan Gowda</span>
-                      <span className="text-slate-400 font-mono">CSE Department Alumnus, Batch of 2025</span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-805 space-y-3">
-                    <p className="text-xs text-slate-500 italic leading-relaxed">
-                      &ldquo;Building and testing Go-Kart formulas with actual industrial components inside the Automotive Association (AAPE) lab was a dream come true. You apply theoretical engineering calculations on track!&rdquo;
-                    </p>
-                    <div className="text-xs">
-                      <span className="font-bold text-slate-800 dark:text-white block">Nikhil S. Gowda</span>
-                      <span className="text-slate-400 font-mono">Mechanical Engineering Lead, 4th Year</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
 
             {/* CONTACT INFORMATION */}
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">

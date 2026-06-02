@@ -8,7 +8,6 @@ import {
   CheckCircle, 
   Globe, 
   Instagram, 
-  Linkedin, 
   Users, 
   ArrowRight,
   ChevronRight,
@@ -208,11 +207,6 @@ export default function ClubDetailsView({
                         {club.socialLinks.instagram && (
                           <a href={club.socialLinks.instagram} target="_blank" rel="noreferrer" className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-150 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300 transition-colors border border-slate-200 dark:border-slate-700" title="Instagram">
                             <Instagram className="w-4 h-4" />
-                          </a>
-                        )}
-                        {club.socialLinks.linkedin && (
-                          <a href={club.socialLinks.linkedin} target="_blank" rel="noreferrer" className="p-2 bg-white dark:bg-slate-800 hover:bg-slate-150 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300 transition-colors border border-slate-200 dark:border-slate-700" title="LinkedIn">
-                            <Linkedin className="w-4 h-4" />
                           </a>
                         )}
                       </div>

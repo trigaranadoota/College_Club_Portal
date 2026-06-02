@@ -16,7 +16,6 @@ import {
   ShieldCheck,
   Globe,
   Instagram,
-  Linkedin,
   MapPin,
   Clock,
   Eye,

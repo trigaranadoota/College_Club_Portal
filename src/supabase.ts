@@ -49,7 +49,6 @@ const INITIAL_CLUBS: Club[] = [
     ],
     socialLinks: {
       instagram: 'https://instagram.com/gdsc.pesce',
-      linkedin: 'https://linkedin.com/company/gdsc-pesce',
       website: 'https://gdsc.community.dev/pes-college-of-engineering-mandya/'
     },
     gallery: [
@@ -59,106 +58,307 @@ const INITIAL_CLUBS: Club[] = [
     ]
   },
   {
-    id: 'samsthruthi-cultural',
-    name: 'Samsthruthi Cultural Association',
-    category: 'Cultural',
-    shortDescription: 'The hub of music, dance, theater, and arts celebrating the vibrant cultural heritage of PESCE Mandya.',
-    description: 'Samsthruthi represents the creative soul of PESCE. We organize college level cultural festivals, and train students for state level competitions. We offer dedicated music rooms, choreography setups, and scriptwriting theater hubs.',
-    requirements: 'PESCE Student from any department with a keen passion for stage performances, musical acts, fine arts, or event coordination.',
-    logo: MOCK_IMAGES.cultural_logo,
-    banner: MOCK_IMAGES.cultural_banner,
-    vision: 'Excellence in cultural expression, fostering creativity and soft skills alongside rigorous technical engineering.',
-    mission: 'Organize PESCE Fest, curate stellar dance and musical bands, and uphold traditional folk and modern stage arts.',
+    id: 'ennovate-club',
+    name: 'Ennovate',
+    category: 'Innovation',
+    shortDescription: 'Fostering a culture of innovation, entrepreneurial thinking, and business setup at PES Mandya.',
+    description: 'Ennovate is the innovation and entrepreneurship club that encourages students to develop creative ideas and transform them into impactful projects or startups. It provides opportunities to participate in innovation challenges, workshops, and startup-related events.',
+    requirements: 'PESCE Engineering Student and can be from any department.',
+    logo: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200',
+    vision: 'To nurture outstanding entrepreneurs, technological product builders, and seed-funded student designs.',
+    mission: 'Empower student ideation through dedicated hackathons, host business canvas reviews, and connect student groups with venture incubation heads.',
     activities: [
-      'PESCE Annual Cultural Fest organization',
-      'Classical & Contemporary dance choreography training',
-      'Music jamming sessions & college band preparation',
-      'Street plays and theatrical script workshops'
+      'PESCE Startup Ideation Challenge and Pitch Day',
+      'Business Model Canvas (BMC) planning bootcamps',
+      'Interactions with successful college founders and local VCs',
+      'Workshops on intellectual properties and patent application procedures'
     ],
     socialLinks: {
-      instagram: 'https://instagram.com/samsthruthi.pesce',
-      website: 'https://pescemandya.org/clubs'
+      instagram: 'https://www.instagram.com/_ennovate_?igsh=MTZiZmNwN3hkanZnbw==',
+      website: 'https://pescemandya.org/ennovate'
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'parva-club',
+    name: 'PARVA',
+    category: 'Cultural',
+    shortDescription: 'Bringing students together through music, dance, theater, art, and various cultural activities.',
+    description: 'PARVA is the cultural club that brings students together through music, dance, drama, art, and various cultural activities. It promotes creativity, teamwork, and campus engagement through events and celebrations.',
+    requirements: 'PESCE Engineering Student and can be from any department.',
+    logo: MOCK_IMAGES.cultural_logo,
+    banner: MOCK_IMAGES.cultural_banner,
+    vision: 'Cultivating expressive balance and deep aesthetic talents alongside demanding technical studies.',
+    mission: 'Lead and design student fests, curate stellar musical ensembles, and represent college arts VTU-wide.',
+    activities: [
+      'Annual Stage Concerts and choreography battles',
+      'Music jamming circles and classical instruments practice',
+      'Cultural street plays and theater acts',
+      'Local Mandya folk singing and fine-arts exhibitions'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/team__parva?igsh=eWFnMWZlaG9rMm4=',
+      website: 'https://pescemandya.org/parva'
     },
     gallery: [
       'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=600',
-      'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=600',
       'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&q=80&w=600'
     ]
   },
   {
-    id: 'aape-automotive',
-    name: 'Automotive Association of PESCE (AAPE)',
+    id: 'ctech-club',
+    name: 'C-Tech',
+    category: 'Technical',
+    shortDescription: 'Enhancing technical CAD, bridge designs, and structural modeling for Civil Engineering.',
+    description: 'C-Tech is the Civil Engineering club that focuses on enhancing technical knowledge and practical skills in the field of civil engineering. It organizes workshops, technical sessions, and project-based activities related to construction and infrastructure.',
+    requirements: 'PESCE Engineering Student and only for Civil department.',
+    logo: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Developing highly skilled civil engineering teams capable of planning sustainable infrastructures.',
+    mission: 'Engage students under practical project labs, explain CAD architectural simulation tools, and bridge structural theories with site visits.',
+    activities: [
+      'Workshops on Revit structural design & modern BIM tools',
+      'Concrete mixing ratios and compression density tests',
+      'Mini highway and bridge 3D mock design fests',
+      'Civil engineering VTU-syllabus expert webinars'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/c.tech_civil?igsh=cWR5MWx3ZjMzcHMx'
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'ascend-club',
+    name: 'ASCEND',
+    category: 'Technical',
+    shortDescription: 'Bridging computer technology theories with robust managerial business concepts for CSBS.',
+    description: 'ASCEND is the club for Computer Science and Business Systems (CSBS) students, aimed at bridging technology and business concepts. It helps members develop technical, analytical, and managerial skills through various activities and events.',
+    requirements: 'PESCE Engineering Student and only for CSBS department.',
+    logo: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Building industry-ready tech executives with complete data analytics and project financial management expertise.',
+    mission: 'Deliver tech-business study webinars, explain financial data models, and run business system case simulations.',
+    activities: [
+      'Computer algorithms and commercial database normalization bootcamps',
+      'Case study debates on corporate digital systems setups',
+      'Webinars on professional Product Management structures',
+      'Data analysis using SQL, Excel & Tableau workshops'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/ascend_pesce?igsh=MXcxMTZ4OHZmOXp5eg=='
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'yrcw-club',
+    name: 'YRCW (Youth Red Cross Wing)',
     category: 'Innovation',
-    shortDescription: 'Design, simulate, and build custom Go-Karts and electric formula racecars to compete in national championships.',
-    description: 'AAPE brings mechanical, electrical, and electronic minds together to invent future mobility. We work with battery design tools, structural dynamics, and participate in SAE BAJA and Go-Kart events.',
-    requirements: 'Strong interest in CAD modeling, physical manufacturing, powertrain design, or electronics integration.',
-    logo: MOCK_IMAGES.auto_logo,
-    banner: MOCK_IMAGES.auto_banner,
-    vision: 'To establish PESCE Mandya as a national beacon of micro-mobility and energy-efficient formula engineering.',
-    mission: 'Build state-of-the-art electric vehicles, collaborate with automotive leaders, and train students on actual industrial equipment.',
+    shortDescription: 'Promoting humanitarian values, blood donation campaigns, and active social responsibility.',
+    description: 'YRCW promotes humanitarian values, social responsibility, and community service among students. The club actively participates in health awareness programs, blood donation drives, and volunteer activities.',
+    requirements: 'PESCE Engineering Student and can be from any department.',
+    logo: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80&w=1200',
+    vision: 'To raise civic-minded engineer volunteers responsive to local health, environment and sanitation concerns.',
+    mission: 'Organize high-reach voluntary blood camps, mobilize First Aid and emergency response drills, and service nearby villages.',
     activities: [
-      'CAD simulation and solid-works design classes',
-      'Electric Powertrain and battery BMS assembly tests',
-      'Annual racing team testing on local tracks',
-      'National Formula Student design reviews participation'
+      'PESCE Campus Mega Blood Donation and health awareness camps',
+      'Certified First Aid, CPR, and disaster response trainings',
+      'Green plantation drives and campus swachhta activities',
+      'Local Mandya orphanage aid visits and educational tutoring'
     ],
     socialLinks: {
-      instagram: 'https://instagram.com/aape.pesce',
-      linkedin: 'https://linkedin.com/company/aape'
+      instagram: 'https://www.instagram.com/pesce.yrcw?igsh=MXNhNnUxdjU3b3l4eQ==',
+      website: 'https://pescemandya.org/yrcw'
     },
     gallery: [
-      'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600',
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=600'
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'
     ]
   },
   {
-    id: 'pesce-sports',
-    name: 'PESCE Sports Federation',
-    category: 'Sports',
-    shortDescription: 'Fostering athletic excellence, national volleyball teams, track and field championships, and sportsmanship.',
-    description: 'PESCE Sports Federation trains students across cricket, basketball, volleyball, athletics, and indoor games. Features indoor sports complexes, massive stadiums, and professional coach setups.',
-    requirements: 'Active student fitness mindset, dedication to regular sporting drills, and potential for inter-university representation.',
-    logo: MOCK_IMAGES.sports_logo,
-    banner: MOCK_IMAGES.sports_banner,
-    vision: 'Healthy minds in robust physical bodies, representing Karnataka and VTU sports successfully.',
-    mission: 'Execute flawless intra-collegiate tourneys, manage state-of-the-art courts, and promote daily fitness practices.',
+    id: 'iste-club',
+    name: 'ISTE (Indian Society for Technical Education)',
+    category: 'Technical',
+    shortDescription: 'Fostering peer technical learning, aptitude tests, technical papers, and industry linkage.',
+    description: 'ISTE helps students enhance their technical knowledge, professional skills, and industry awareness. It provides opportunities to participate in workshops, seminars, competitions, and networking events.',
+    requirements: 'PESCE Engineering Student and can be from any department.',
+    logo: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Establishing top career guidance frameworks to prepare engineers for VTU examinations & modern technical jobs.',
+    mission: 'Deliver tech fests, conduct mock interviews, run regular logical aptitude events, and publish study papers.',
     activities: [
-      'VTU Zonal and State-Level athletic championships',
-      'PESCE Premier Cricket League and Volleyball tournaments',
-      'Expert physical rehabilitation and dietary guidelines sessions',
-      'Annual Sports Day with historic alumni representation'
+      'Weekly engineering aptitude and mock interview rounds',
+      'State-level technical paper presentations and seminar events',
+      'Technical debates on futuristic engineering ethics and science',
+      'Interactive keynotes from distinguished corporate architects'
     ],
     socialLinks: {
-      instagram: 'https://instagram.com/sports.pesce'
+      instagram: 'https://www.instagram.com/pesce.iste?igsh=cXdnZmJkYmJiZHMx'
     },
     gallery: [
-      'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=600',
-      'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=600'
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'
     ]
   },
   {
-    id: 'vidyarthi-literature',
-    name: 'Vidyarthi Magazine and Literature Club',
-    category: 'Literature',
-    shortDescription: 'The pinnacle of creative writing, annual magazines, bilingual debating tournaments, and library activities.',
-    description: 'Vidyarthi organizes the college’s yearly publishing process, hosts MUN (Model United Nations) sessions, conducts book reviews, debates, poetry slams, and publishes articles in both Kannada and English.',
-    requirements: 'PESCE students enjoying creative translation, design layouts, written columns, or spoken debates.',
-    logo: MOCK_IMAGES.literature_logo,
-    banner: MOCK_IMAGES.literature_banner,
-    vision: 'Cultivating expressive, thoughtful, and analytical speakers who represent student perspectives with literary rigor.',
-    mission: 'Maintain high publication standards for PESCE literature, promote bilingual heritage, and hold debates on engineering ethics.',
+    id: 'ieee-club',
+    name: 'IEEE (Institute of Electrical and Electronics Engineers)',
+    category: 'Technical',
+    shortDescription: 'Empowering advanced research paper publications, IoT circuits, and globally linked electrical systems.',
+    description: 'IEEE is a globally recognized professional organization that promotes technological innovation and excellence. The club offers students exposure to emerging technologies, technical events, research opportunities, and industry connections.',
+    requirements: 'PESCE Engineering Student and can be from any department.',
+    logo: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Connecting electrical and computer research with international IEEE publications and smart power standards.',
+    mission: 'Train students on writing formal papers, assemble microcontrollers and sensor loops, and drive engineering seminars.',
     activities: [
-      'Annual Vidyarthi College Magazine publication',
-      'Kannada & English debate forums and speech contests',
-      'Creative writing and investigative journal workshops',
-      'Inter-collegiate literature festivals and book exchanges'
+      'IoT device setups, Raspberry Pi & Arduino coding fests',
+      'Scientific research paper styling and Latex format clinics',
+      'Annual IEEE Mandya student project innovation reviews',
+      'VLSI circuit synthesis and micro-electronics simulations'
     ],
     socialLinks: {
-      instagram: 'https://instagram.com/vidyarthi.pesce'
+      instagram: 'https://instagram.com/ieee.pesce',
+      website: 'https://pescemandya.org/ieee'
     },
     gallery: [
-      'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=600',
-      'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=600'
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'dot-club',
+    name: 'DOT (Developers of Tomorrow)',
+    category: 'Technical',
+    shortDescription: 'Nurturing skills in software design, big data processing, database normalizations, and competitive coding for CSDS.',
+    description: 'DOT is the CSDS(Computer science and Data Science) department club dedicated to fostering skills in software development, data science, and emerging technologies. It encourages students to learn, build projects, and participate in coding and technical competitions.',
+    requirements: 'PESCE Engineering Student and only for CSDS department.',
+    logo: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200',
+    vision: 'To build exceptional software designers and Big Data modeling developers.',
+    mission: 'Deliver competitive coding platforms, host cloud services workshops, and explain predictive datasets curation.',
+    activities: [
+      'Comprehensive Data Structures and Algorithms preparation marathons',
+      'Structured database and PostgreSQL schema design contests',
+      'Big Data visualization programs and analytical plots tutorials',
+      'Full-stack JS (MERN) cloud web applications camps'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/dot_pesce_?igsh=bzQxNnJwam5zM2xn'
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'tachyon-club',
+    name: 'Tachyon',
+    category: 'Technical',
+    shortDescription: 'Expanding horizons in Python, deep neural models, Machine Learning pipelines, and Artificial Intelligence designs.',
+    description: 'Tachyon is the AI & ML department club focused on artificial intelligence, machine learning, and related technologies. It provides a platform for students to explore, innovate, and work on real-world AI-driven projects.',
+    requirements: 'PESCE Engineering Student and only for AI & ML department.',
+    logo: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Establishing stellar student research leadership in deep learning models and generative neural platforms.',
+    mission: 'Deliver Python ML tutorials, host collaborative Kaggle dataset tournaments, and outline AI API integrations.',
+    activities: [
+      'Deep Neural Networks setup & PyTorch/TensorFlow bootcamps',
+      'Kaggle dataset classification and regression challenges',
+      'Generative AI integrations and vector database webinars',
+      'Computer Vision OCR and advanced image classifications projects'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/tachyon.club.pesce?igsh=MWd5OHZpcXN3M3dtMg=='
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'matrixz-club',
+    name: 'MATRIXZ',
+    category: 'Technical',
+    shortDescription: 'Accelerating high intensity coding hackathons, software craft, and standard web engineering for CSE.',
+    description: 'MATRIXZ is the Computer Science Engineering club that promotes programming, software development, and technical innovation. It organizes coding contests, workshops, hackathons, and collaborative learning activities.',
+    requirements: 'PESCE Engineering Student and only for CSE department.',
+    logo: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Cultivating the most versatile team of software engineers, open-source maintainers, and security testers.',
+    mission: 'Run high-speed terminal debug games, explain systems orchestration using Docker, and drive code quality reviews.',
+    activities: [
+      'Annual CSE Matrixz CodeFest and web structural championships',
+      'Linux commands and shell scripting workshops',
+      'Docker containers and microservice architecture webinars',
+      'Web application vulnerability audits and OWASP lectures'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/matrixz_cse_pesce?igsh=eDhicDViOWgxeXJ1'
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'spark-club',
+    name: 'SPARK',
+    category: 'Technical',
+    shortDescription: 'Decoding power grids, high-voltage circuits, microgrids, solar integrations, and battery setups for EEE.',
+    description: 'SPARK is the EEE(Electrical and Electronics Engineering) club that helps students deepen their understanding of electrical systems and emerging technologies. The club conducts technical workshops, project exhibitions, and industry-oriented activities.',
+    requirements: 'PESCE Engineering Student and only for EEE department.',
+    logo: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1200',
+    vision: 'Nurturing outstanding electrical engineers skilled in renewable energy networks & circuit dynamics.',
+    mission: 'Conduct circuit wire mock laboratories, host solar clean energy integrations panels, and teach grid telemetry.',
+    activities: [
+      'MATLAB electric systems and capacitor simulations',
+      'High power electronic inverter systems wiring camps',
+      'Solar energy clean generation and grid distribution workshops',
+      'Electrical safety systems design sessions'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/spark_pesce?igsh=azgzd2lpMW9nd2t1'
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600'
+    ]
+  },
+  {
+    id: 'robohub-club',
+    name: 'Robo Hub',
+    category: 'Technical',
+    shortDescription: 'Constructing autonomous machines, mechanical gears, 3D printing structures, and robotics setups.',
+    description: 'Robo Hub is the Mechanical Engineering club dedicated to robotics, automation, and hands-on engineering projects. It enables students to design, build, and experiment with innovative robotic systems and technologies.',
+    requirements: 'PESCE Engineering Student and only for Mechanical department.',
+    logo: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=200',
+    banner: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200',
+    vision: 'To establish supreme technical mastery in multi-axis automation and mechanical design structures.',
+    mission: 'Assemble automated robot wheels, code ROS communication commands, and provide 3D extruder layouts.',
+    activities: [
+      'CAD CATIA geometric structural modeling workshops',
+      'Arduino and stepper motor robotics arm controls camps',
+      'PESCE Campus Line-Follower and Robo-Soccer tournaments',
+      '3D Printing material and slicing setups training'
+    ],
+    socialLinks: {
+      instagram: 'https://www.instagram.com/robotics_club_pesce?igsh=MXFnMW9oMmN5b2x2dQ=='
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'
     ]
   }
 ];
@@ -202,7 +402,7 @@ const INITIAL_ADMINS: Admin[] = [
     id: 'admin-cultural',
     email: 'cultural_admin@pesce.ac.in',
     role: 'club_admin',
-    club_id: 'samsthruthi-cultural',
+    club_id: 'parva-club',
     name: 'Rahul Kumar'
   },
   {
@@ -242,7 +442,7 @@ const INITIAL_EVENTS: Event[] = [
   },
   {
     id: 'ev-3',
-    club_id: 'samsthruthi-cultural',
+    club_id: 'parva-club',
     title: 'PESCE Fest 2026: UTSAV',
     description: 'The largest cultural carnival of the academic year. Witness dynamic classical dance acts, rock bands, Kannada folk singing, street plays, and visual arts exhibitions.',
     date: '2026-06-20',
@@ -255,16 +455,16 @@ const INITIAL_EVENTS: Event[] = [
   },
   {
     id: 'ev-4',
-    club_id: 'aape-automotive',
-    title: 'Formulacar Aerodynamics & Sim Lab Session',
-    description: 'Dive deep into Formula Student guidelines, chassis rollcage simulation using Ansys, and vehicle dynamics telemetry evaluation.',
+    club_id: 'robohub-club',
+    title: 'Robotics Assembly & ROS Telemetry Lab',
+    description: 'Dive deep into autonomous systems, robotic wheel mechanics, ROS nodes communication, and electronic stepper motor integrations.',
     date: '2026-06-15',
     time: '11:00',
-    venue: 'Mechanical CAD Lab',
+    venue: 'Robotics and Mechanical CAD Lab',
     capacity: 40,
     availableSeats: 35,
     visibility: 'Members Only',
-    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800'
   }
 ];
 
@@ -286,7 +486,7 @@ const INITIAL_MEMBERS: Member[] = [
   {
     id: 'm-3',
     user_id: 'student-001',
-    club_id: 'samsthruthi-cultural',
+    club_id: 'parva-club',
     role: 'Member',
     joined_at: '2025-10-10T11:00:00.000Z'
   }
@@ -311,7 +511,7 @@ const INITIAL_APPLICATIONS: Application[] = [
   {
     id: 'app-002',
     user_id: 'student-003',
-    club_id: 'aape-automotive',
+    club_id: 'robohub-club',
     status: 'Pending',
     applied_at: '2026-05-29T10:15:30.000Z',
     fullName: 'Preetham Gowda',
@@ -320,13 +520,13 @@ const INITIAL_APPLICATIONS: Application[] = [
     year: '2nd Year',
     email: 'preetham@pesce.ac.in',
     phone: '8765432109',
-    skills: 'SolidWorks, physical machining, Go-Kart wheel assembly',
-    reason: 'I love vehicle dynamics and I want to spend evenings building a robust Go-Kart and representing PESCE in SAE competitions.'
+    skills: 'SolidWorks, physical machining, Robotics wheel assembly',
+    reason: 'I love autonomous machines and automation setups, and I want to spend evenings building active robot prototypes.'
   },
   {
     id: 'app-003',
     user_id: 'student-002',
-    club_id: 'samsthruthi-cultural',
+    club_id: 'parva-club',
     status: 'Shortlisted',
     applied_at: '2026-05-28T16:45:00.000Z',
     fullName: 'Nisha S. Gowda',
@@ -377,6 +577,31 @@ function saveStored<T>(key: string, data: T): void {
 
 // Initialize persistence engine
 export const initDB = () => {
+  const clubsInStorage = localStorage.getItem(KEYS.CLUBS);
+  if (clubsInStorage) {
+    try {
+      const parsed = JSON.parse(clubsInStorage) as Club[];
+      const hasOldClubs = parsed.some(c => 
+        c.id === 'samsthruthi-cultural' || 
+        c.id === 'aape-automotive' || 
+        c.id === 'vidyarthi-literature' || 
+        c.id === 'pesce-sports'
+      );
+      const hasNewClubs = parsed.some(c => c.id === 'ennovate-club');
+      const hasLinkedIn = parsed.some(c => c.socialLinks && c.socialLinks.linkedin);
+      const hasOldInstagram = parsed.some(c => c.socialLinks && c.socialLinks.instagram && (c.socialLinks.instagram.includes('ennovate.pesce') || c.socialLinks.instagram.includes('parva.pesce')));
+      if (hasOldClubs || !hasNewClubs || parsed.length < 10 || hasLinkedIn || hasOldInstagram) {
+        localStorage.removeItem(KEYS.CLUBS);
+        localStorage.removeItem(KEYS.EVENTS);
+        localStorage.removeItem(KEYS.MEMBERS);
+        localStorage.removeItem(KEYS.APPLICATIONS);
+        localStorage.removeItem(KEYS.NOTIFICATIONS);
+      }
+    } catch (e) {
+      localStorage.removeItem(KEYS.CLUBS);
+    }
+  }
+
   getStored<Club[]>(KEYS.CLUBS, INITIAL_CLUBS);
   getStored<User[]>(KEYS.USERS, INITIAL_USERS);
   getStored<Admin[]>(KEYS.ADMINS, INITIAL_ADMINS);

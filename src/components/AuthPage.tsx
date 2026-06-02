@@ -239,7 +239,7 @@ export default function AuthPage({ onLoginSuccess, onTabChange }: AuthPageProps)
                   cultural_admin@pesce.ac.in
                 </span>
                 <span className="inline-block px-1.5 py-0.5 rounded text-[8px] bg-indigo-50/50 dark:bg-slate-800/80 text-indigo-700 dark:text-indigo-400 font-bold mt-1 uppercase tracking-wider">
-                  Samsthruthi Lead
+                  PARVA Lead
                 </span>
               </div>
             </button>
