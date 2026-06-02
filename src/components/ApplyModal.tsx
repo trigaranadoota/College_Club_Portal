@@ -101,8 +101,9 @@ export default function ApplyModal({ club, onClose, onSuccess, activeSession }: 
     if (!formData.usn.toUpperCase().startsWith('4PS')) {
       return setErrorMsg('Please enter a valid Visvesvaraya Technological University (VTU) USN starting with 4PS (e.g. 4PS23CS001)');
     }
-    if (!formData.email.endsWith('@pesce.ac.in') && !formData.email.endsWith('.edu')) {
-      return setErrorMsg('Please use your official college email ending with @pesce.ac.in');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      return setErrorMsg('Please enter a valid email address');
     }
     if (!formData.phone.match(/^\d{10}$/)) {
       return setErrorMsg('Please enter a valid 10-digit mobile number');
@@ -275,10 +276,10 @@ export default function ApplyModal({ club, onClose, onSuccess, activeSession }: 
               </select>
             </div>
 
-            {/* College Email */}
+            {/* Email */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">
-                College Email ID (@pesce.ac.in)
+                Email Address
               </label>
               <input 
                 type="email" 
@@ -286,7 +287,7 @@ export default function ApplyModal({ club, onClose, onSuccess, activeSession }: 
                 value={formData.email}
                 onChange={e => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-3 py-2.5 rounded-xl border border-slate-200/60 dark:border-slate-800 text-sm focus:outline-none focus:border-blue-500 bg-white/60 dark:bg-slate-950/60 text-slate-950 dark:text-white font-mono text-xs"
-                placeholder="username@pesce.ac.in"
+                placeholder="yourname@gmail.com"
               />
             </div>
 

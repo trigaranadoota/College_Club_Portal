@@ -392,6 +392,13 @@ const INITIAL_USERS: User[] = [
 
 const INITIAL_ADMINS: Admin[] = [
   {
+    id: 'admin-ennovate',
+    email: 's.ubbarao78925@gmail.com',
+    role: 'club_admin',
+    club_id: 'ennovate-club',
+    name: 'Subba Rao'
+  },
+  {
     id: 'admin-gdsc',
     email: 'gdsc_admin@pesce.ac.in',
     role: 'club_admin',
@@ -602,6 +609,19 @@ export const initDB = () => {
     }
   }
 
+  const adminsInStorage = localStorage.getItem(KEYS.ADMINS);
+  if (adminsInStorage) {
+    try {
+      const parsedAdmins = JSON.parse(adminsInStorage) as Admin[];
+      const hasUbbarao = parsedAdmins.some(a => a.email === 's.ubbarao78925@gmail.com');
+      if (!hasUbbarao) {
+        localStorage.removeItem(KEYS.ADMINS);
+      }
+    } catch (e) {
+      localStorage.removeItem(KEYS.ADMINS);
+    }
+  }
+
   getStored<Club[]>(KEYS.CLUBS, INITIAL_CLUBS);
   getStored<User[]>(KEYS.USERS, INITIAL_USERS);
   getStored<Admin[]>(KEYS.ADMINS, INITIAL_ADMINS);
@@ -670,9 +690,10 @@ export const supabaseMock = {
       return { user: matchedUser, role: 'student' };
     }
 
-    // 3. If email is valid PESCE email but not in list, auto-register them as a student for a seamless experience!
-    if (email.endsWith('@pesce.ac.in')) {
-      const nameParts = email.split('@')[0].split('.');
+    // 3. If email is valid, auto-register them as a student for a seamless experience!
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(email)) {
+      const nameParts = email.split('@')[0].split(/[\._\-]/);
       const simulatedName = nameParts.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
       const simulatedUSN = `4PS23CS${Math.floor(100 + Math.random() * 899)}`;
       
@@ -697,7 +718,7 @@ export const supabaseMock = {
       return { user: newUser, role: 'student' };
     }
 
-    return { role: 'student', error: 'User registration with @pesce.ac.in emails will automatically register a new profile! If you are an Admin, please use the specific pre-seeded credentials e.g. gdsc_admin@pesce.ac.in or superadmin@pesce.ac.in.' };
+    return { role: 'student', error: 'Please enter a valid email address.' };
   },
 
   getCurrentSession() {

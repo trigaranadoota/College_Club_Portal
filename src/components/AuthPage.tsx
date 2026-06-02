@@ -101,7 +101,7 @@ export default function AuthPage({ onLoginSuccess, onTabChange }: AuthPageProps)
             {/* Email Field */}
             <div>
               <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">
-                College Email Address
+                Email Address
               </label>
               <div className="relative rounded-xl shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -114,7 +114,7 @@ export default function AuthPage({ onLoginSuccess, onTabChange }: AuthPageProps)
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="block w-full pl-10 pr-3 py-2.5 bg-white/60 dark:bg-slate-950/60 border border-slate-200/60 dark:border-slate-800 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-slate-900 dark:text-white font-mono"
-                  placeholder="name@pesce.ac.in"
+                  placeholder="yourname@gmail.com"
                 />
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function AuthPage({ onLoginSuccess, onTabChange }: AuthPageProps)
           {/* Guidelines on auto registration */}
           <div className="mt-4 text-center">
             <p className="text-[11px] text-slate-400">
-              * Any new email ending in <span className="font-semibold text-slate-500 font-mono">@pesce.ac.in</span> will auto-register as a Student for easy testing.
+              * Any new email address will auto-register as a Student for easy testing.
             </p>
           </div>
 

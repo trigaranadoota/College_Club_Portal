@@ -151,8 +151,9 @@ export default function SuperAdminDashboard({ onSuccess, onTabChange }: SuperAdm
       return;
     }
 
-    if (!email.endsWith('@pesce.ac.in')) {
-      alert('Admin roles are strictly restricted to @pesce.ac.in domains.');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
       return;
     }
 
@@ -590,8 +591,8 @@ export default function SuperAdminDashboard({ onSuccess, onTabChange }: SuperAdm
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">College Email (@pesce.ac.in) *</label>
-                <input required type="email" value={newAdminForm.email} onChange={e => setNewAdminForm({...newAdminForm, email: e.target.value})} className="w-full p-2 rounded-xl border border-slate-250 bg-white dark:bg-slate-950 text-slate-950 dark:text-white font-mono" placeholder="username@pesce.ac.in" />
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Email Address *</label>
+                <input required type="email" value={newAdminForm.email} onChange={e => setNewAdminForm({...newAdminForm, email: e.target.value})} className="w-full p-2 rounded-xl border border-slate-250 bg-white dark:bg-slate-950 text-slate-950 dark:text-white font-mono" placeholder="username@gmail.com" />
               </div>
 
               <div>

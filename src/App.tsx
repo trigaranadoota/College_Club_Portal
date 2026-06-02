@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 import { supabaseMock, initDB, resetDBToDefaults } from './supabase';
-import { Club, Event, UserRole, User } from './types';
+import { Club, Event, UserRole, User, Application, Member } from './types';
 
 // Page components
 import Header from './components/Header';
@@ -39,6 +39,8 @@ export default function App() {
   // Database States
   const [clubs, setClubs] = useState<Club[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
+  const [myApplications, setMyApplications] = useState<Application[]>([]);
+  const [myMemberships, setMyMemberships] = useState<Member[]>([]);
   
   // Navigation & Session
   const [currentTab, setCurrentTab] = useState<string>('home');
@@ -58,10 +60,35 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
+  const loadUserAssociationData = async (session: any) => {
+    if (session?.role === 'student' && session?.studentProfile?.id) {
+      const studentId = session.studentProfile.id;
+      const allApps = await supabaseMock.getApplications();
+      const allMembers = await supabaseMock.getMembers();
+      setMyApplications(allApps.filter(a => a.user_id === studentId));
+      setMyMemberships(allMembers.filter(m => m.user_id === studentId));
+    } else {
+      setMyApplications([]);
+      setMyMemberships([]);
+    }
+  };
+
+  useEffect(() => {
+    loadUserAssociationData(activeSession);
+  }, [activeSession]);
+
+  const isUserAccepted = (clubId: string) => {
+    const isMember = myMemberships.some(m => m.club_id === clubId);
+    const isAppAccepted = myApplications.some(a => a.club_id === clubId && a.status === 'Accepted');
+    return isMember || isAppAccepted;
+  };
+
   // Initialize DB on first load
   useEffect(() => {
     initDB();
-    setActiveSession(supabaseMock.getCurrentSession());
+    const session = supabaseMock.getCurrentSession();
+    setActiveSession(session);
+    loadUserAssociationData(session);
     
     // Load Clubs & Events
     supabaseMock.getClubs().then(setClubs);
@@ -82,19 +109,18 @@ export default function App() {
 
   // Sync session state to stay safe
   const refreshDatabaseAndSession = async () => {
-    setActiveSession(supabaseMock.getCurrentSession());
+    const session = supabaseMock.getCurrentSession();
+    setActiveSession(session);
     const refreshedClubs = await supabaseMock.getClubs();
     setClubs(refreshedClubs);
     const refreshedEvents = await supabaseMock.getEvents();
     setEvents(refreshedEvents);
+    await loadUserAssociationData(session);
   };
 
   // Toast auto slide-out helper
   const triggerToast = (message: string, type: 'success' | 'info' | 'error' = 'success') => {
-    setToast({ message, type });
-    setTimeout(() => {
-      setToast(null);
-    }, 4500);
+    // Toast alerts completely removed as requested
   };
 
   // Auth Action handlers
@@ -178,31 +204,6 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col justify-between transition-colors duration-305 bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
       
-      {/* Dynamic Toast Alert Header */}
-      {toast && (
-        <div 
-          id="global-alert-toast" 
-          className={`fixed top-4 right-4 z-50 p-4 rounded-2xl shadow-xl border flex items-start space-x-3 max-w-sm transition-all duration-300 animate-bounce ${
-            toast.type === 'success' 
-              ? 'bg-emerald-50 dark:bg-green-950 border-emerald-250 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300' 
-              : toast.type === 'error'
-              ? 'bg-rose-50 dark:bg-red-950 border-rose-250 dark:border-rose-900 text-rose-800 dark:text-rose-300'
-              : 'bg-indigo-50 dark:bg-slate-900 border-indigo-200 dark:border-indigo-850 text-indigo-800 dark:text-indigo-400'
-          }`}
-        >
-          <div className="shrink-0 mt-0.5">
-            {toast.type === 'success' ? <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> : <AlertCircle className="w-5 h-5" />}
-          </div>
-          <div className="flex-1">
-            <h4 className="text-xs font-bold uppercase tracking-wider">System Statement</h4>
-            <p className="text-xs mt-1 leading-relaxed font-medium">{toast.message}</p>
-          </div>
-          <button onClick={() => setToast(null)} className="p-0.5 hover:bg-neutral-100 rounded-lg">
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      )}
-
       {/* Navigation Header */}
       <Header 
         currentTab={currentTab} 
@@ -527,18 +528,24 @@ export default function App() {
                     <div className="px-5.5 py-3.5 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 flex space-x-2">
                       <button
                         onClick={() => setSelectedClub(club)}
-                        className="flex-1 px-3 py-2 bg-white dark:bg-slate-800 text-slate-705 dark:text-slate-300 border border-slate-200 dark:border-slate-750 text-xs font-bold rounded-lg hover:bg-slate-100 transition-all shadow-sm"
+                        className={`px-3 py-2 text-xs font-bold rounded-lg transition-all shadow-sm ${
+                          isUserAccepted(club.id)
+                            ? "w-full bg-emerald-50 dark:bg-green-950/30 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-950 text-center"
+                            : "flex-1 bg-white dark:bg-slate-800 text-slate-705 dark:text-slate-300 border border-slate-200 dark:border-slate-750 hover:bg-slate-100"
+                        }`}
                       >
-                        View Details
+                        {isUserAccepted(club.id) ? "View Details (Joined)" : "View Details"}
                       </button>
                       
-                      <button
-                        onClick={() => handleApplyClick(club)}
-                        id={`apply-button-card-` + club.id}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-all shadow-md shadow-blue-500/10 whitespace-nowrap"
-                      >
-                        Apply to Join
-                      </button>
+                      {!isUserAccepted(club.id) && (
+                        <button
+                          onClick={() => handleApplyClick(club)}
+                          id={`apply-button-card-` + club.id}
+                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-all shadow-md shadow-blue-500/10 whitespace-nowrap"
+                        >
+                          Apply to Join
+                        </button>
+                      )}
                     </div>
 
                   </div>

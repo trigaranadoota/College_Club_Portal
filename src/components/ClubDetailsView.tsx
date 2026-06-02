@@ -33,13 +33,30 @@ export default function ClubDetailsView({
 }: ClubDetailsViewProps) {
   const [clubEvents, setClubEvents] = useState<Event[]>([]);
   const [tab, setTab] = useState<'details' | 'activities' | 'gallery'>('details');
+  const [isAccepted, setIsAccepted] = useState<boolean>(false);
 
   useEffect(() => {
     supabaseMock.getEvents().then(allEvents => {
       const filtered = allEvents.filter(e => e.club_id === club.id);
       setClubEvents(filtered);
     });
-  }, [club]);
+
+    if (activeSession?.role === 'student' && activeSession?.studentProfile?.id) {
+      const studentId = activeSession.studentProfile.id;
+      Promise.all([
+        supabaseMock.getMembers(),
+        supabaseMock.getApplications()
+      ]).then(([members, apps]) => {
+        const isMember = members.some(m => m.user_id === studentId && m.club_id === club.id);
+        const isAppAccepted = apps.some(a => a.user_id === studentId && a.club_id === club.id && a.status === 'Accepted');
+        setIsAccepted(isMember || isAppAccepted);
+      }).catch(err => {
+        console.error('Failed to resolve club membership status:', err);
+      });
+    } else {
+      setIsAccepted(false);
+    }
+  }, [club, activeSession]);
 
   // Separate upcoming, ongoing/upcoming, and past events
   const currentDate = '2026-05-30'; // constant mock current date
@@ -92,16 +109,23 @@ export default function ClubDetailsView({
             </div>
 
             {/* Application actions inside banner top */}
-            <div className="flex space-x-2">
-              <button
-                onClick={() => onApplyClick(club)}
-                id="apply-to-join-banner"
-                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-blue-500/25 flex items-center space-x-1"
-              >
-                <span>Apply to Join</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            {!isAccepted ? (
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => onApplyClick(club)}
+                  id="apply-to-join-banner"
+                  className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-blue-500/25 flex items-center space-x-1"
+                >
+                  <span>Apply to Join</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-1.5 px-4 py-2 bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 text-emerald-400 font-bold text-xs rounded-xl shadow-md">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                <span>Accepted Member</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -385,16 +409,9 @@ export default function ClubDetailsView({
           <div className="flex space-x-3 w-full sm:w-auto">
             <button
               onClick={onClose}
-              className="flex-1 sm:flex-initial px-5 py-2.5 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-350 text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-all text-center"
+              className="flex-1 sm:flex-initial px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-350 text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-all text-center min-w-[120px]"
             >
               Close Details
-            </button>
-            <button
-              onClick={() => onApplyClick(club)}
-              id="apply-to-join-footer"
-              className="flex-1 sm:flex-initial px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 transition-all text-center"
-            >
-              Register Application
             </button>
           </div>
         </div>
