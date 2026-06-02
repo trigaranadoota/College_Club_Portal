@@ -331,7 +331,7 @@ export default function ClubAdminDashboard({
 
               {/* Stat 2 */}
               <div className="p-6 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest font-mono">
+                <span className="text-[10px] font-bold text-amber-955 uppercase tracking-widest font-mono">
                   Active Roll List
                 </span>
                 <p className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 font-mono">
@@ -464,7 +464,7 @@ export default function ClubAdminDashboard({
                           app.status === 'Accepted' ? 'bg-green-100 text-green-800 dark:bg-green-950/40 dark:text-green-400' :
                           app.status === 'Shortlisted' ? 'bg-amber-100 text-amber-805 dark:bg-amber-950/40 dark:text-amber-400' :
                           app.status === 'Rejected' ? 'bg-red-100 text-red-800 dark:bg-red-950/40 dark:text-red-400' :
-                          'bg-blue-100 text-blue-800 dark:bg-blue-955/40 dark:text-blue-400'
+                          'bg-[#decbb7]/40 text-[#5c3e21]'
                         }`}>
                           {app.status}
                         </span>

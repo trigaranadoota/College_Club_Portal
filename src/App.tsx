@@ -202,7 +202,7 @@ export default function App() {
   const pastEvents = publicEvents.filter(e => e.date < currentDateISO);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between transition-colors duration-305 bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+    <div className="min-h-screen flex flex-col justify-between transition-colors duration-305 bg-gradient-to-b from-[#faf6f0] via-[#fdfbf7] to-white text-slate-800">
       
       {/* Navigation Header */}
       <Header 
@@ -227,24 +227,21 @@ export default function App() {
             
             {/* HERO SECTION */}
             <section className="max-w-7xl mx-auto px-6 lg:px-8 text-center space-y-6">
-              <div className="relative overflow-hidden rounded-3xl p-8 md:p-14 hero-gradient text-white shadow-xl card-shadow">
-                {/* Decorative glow blobs */}
-                <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/25 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none" />
+              <div className="relative overflow-hidden rounded-3xl p-8 md:p-14 hero-gradient text-black shadow-xl card-shadow border border-[#cca785]/20">
                 
                 <div className="relative z-10 space-y-6 max-w-4xl mx-auto">
-                  <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-blue-105">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+                  <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-amber-950/5 backdrop-blur-md border border-[#cca785]/40 rounded-full text-amber-950">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-805 animate-pulse" />
                     <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase">
                       PESCE Mandya autonomous extracurricular board
                     </span>
                   </div>
 
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-display leading-tight">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-black font-display leading-tight">
                     PESCE Club Management Portal
                   </h1>
 
-                  <p className="text-sm sm:text-base md:text-lg text-blue-100/90 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg text-slate-800 max-w-2xl mx-auto leading-relaxed font-medium">
                     Discover creative associations, develop professional skills, apply for official status memberships, and attend state-level engineering bootcamps.
                   </p>
 
@@ -252,10 +249,10 @@ export default function App() {
                     <button
                       onClick={() => setCurrentTab('clubs')}
                       id="hero-explore-clubs"
-                      className="w-full sm:w-auto px-6 py-3 bg-white text-blue-700 hover:bg-blue-50 font-bold text-sm rounded-xl transition-all shadow-md flex items-center justify-center space-x-1.5 cursor-pointer"
+                      className="w-full sm:w-auto px-6 py-3 bg-gradient-to-br from-[#4a2e1b] to-[#2b160a] hover:from-[#3c2214] hover:to-[#1c0e06] text-white font-extrabold text-sm rounded-xl transition-all shadow-md border border-[#2b160a]/20 flex items-center justify-center space-x-1.5 cursor-pointer"
                     >
                       <span>Explore Active Clubs</span>
-                      <ArrowRight className="w-4 h-4 text-blue-700" />
+                      <ArrowRight className="w-4 h-4 text-white" />
                     </button>
 
                     {activeSession ? (
@@ -266,7 +263,7 @@ export default function App() {
                           if (activeSession.role === 'super_admin') setCurrentTab('superadmin');
                         }}
                         id="hero-go-dashboard"
-                        className="w-full sm:w-auto px-6 py-3 bg-white/15 hover:bg-white/25 text-white font-bold text-sm rounded-xl transition-all text-center border border-white/25 backdrop-blur-sm cursor-pointer"
+                        className="w-full sm:w-auto px-6 py-3 bg-gradient-to-br from-[#4a2e1b] to-[#2b160a] hover:from-[#3c2214] hover:to-[#1c0e06] text-white border border-[#2b160a]/20 font-extrabold text-sm rounded-xl transition-all text-center shadow-md cursor-pointer"
                       >
                         Go to Dashboard
                       </button>
@@ -274,7 +271,7 @@ export default function App() {
                       <button
                         onClick={() => setCurrentTab('login')}
                         id="hero-login-btn"
-                        className="w-full sm:w-auto px-6 py-3 bg-white/15 hover:bg-white/25 text-white font-bold text-sm rounded-xl transition-all text-center border border-white/25 backdrop-blur-sm cursor-pointer"
+                        className="w-full sm:w-auto px-6 py-3 bg-gradient-to-br from-[#4a2e1b] to-[#2b160a] hover:from-[#3c2214] hover:to-[#1c0e06] text-white border border-[#2b160a]/20 font-extrabold text-sm rounded-xl transition-all text-center shadow-md cursor-pointer"
                       >
                         College Portal Login
                       </button>
@@ -289,7 +286,7 @@ export default function App() {
             {/* ABOUT CLUBS AT PESCE */}
             <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">
+                <span className="text-xs font-bold uppercase tracking-widest text-amber-955 font-mono">
                   Autonomous Campus Culture
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-905 dark:text-slate-50 font-display">
@@ -329,12 +326,12 @@ export default function App() {
             <section className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#1d4ed8] dark:text-blue-400 font-mono">Student schedules</span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white font-display">Upcoming Campus Programs</h3>
+                  <span className="text-xs font-bold uppercase tracking-widest text-amber-950 font-mono">Student schedules</span>
+                  <h3 className="text-2xl font-extrabold text-slate-900 font-display">Upcoming Campus Programs</h3>
                 </div>
                 <button
                   onClick={() => setCurrentTab('events')}
-                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1 cursor-pointer"
+                  className="text-xs font-bold text-amber-955 hover:underline flex items-center space-x-1 cursor-pointer"
                 >
                   <span>Check whole catalog</span>
                   <ChevronRight className="w-4 h-4" />
@@ -348,43 +345,43 @@ export default function App() {
                   {upcomingEvents.slice(0, 2).map((ev) => {
                     const hostClub = clubs.find(c => c.id === ev.club_id);
                     return (
-                      <div key={ev.id} className="p-6 glass-effect rounded-3xl border border-slate-205/40 dark:border-slate-800/45 flex flex-col sm:flex-row justify-between gap-6 card-shadow transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/20">
+                      <div key={ev.id} className="p-6 bg-gradient-to-br from-white to-[#faf7f2] rounded-3xl border border-[#cca785]/20 flex flex-col sm:flex-row justify-between gap-6 card-shadow transition-all duration-300 hover:-translate-y-1 hover:border-[#cca785]/40">
                         <div className="space-y-2">
-                          <span className="inline-block text-[9px] font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase">
+                          <span className="inline-block text-[9px] font-bold tracking-wider text-amber-950 uppercase">
                             Host: {hostClub?.name || 'Club'}
                           </span>
-                          <h4 className="text-sm font-bold text-slate-900 dark:text-white leading-snug">
+                          <h4 className="text-sm font-bold text-slate-900 leading-snug">
                             {ev.title}
                           </h4>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
+                          <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
                             {ev.description}
                           </p>
                           
-                          <div className="pt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-450 font-mono">
+                          <div className="pt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-500 font-mono">
                             <div className="flex items-center space-x-1">
-                              <Calendar className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                              <Calendar className="w-3.5 h-3.5 text-[#2b160a]" />
                               <span>{ev.date} at {ev.time}</span>
                             </div>
                             <div className="flex items-center space-x-1">
-                              <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                              <MapPin className="w-3.5 h-3.5 text-[#2b160a]" />
                               <span className="truncate">{ev.venue}</span>
                             </div>
                           </div>
                         </div>
 
                         <div className="sm:w-36 flex flex-col justify-between shrink-0 self-end sm:self-auto space-y-4">
-                          <div className="text-right sm:text-center p-2.5 bg-slate-50/20 dark:bg-slate-950/20 rounded-xl border border-slate-150/40 dark:border-slate-800/40">
-                            <span className="block text-lg font-bold font-mono text-slate-800 dark:text-white leading-none">
+                          <div className="text-right sm:text-center p-2.5 bg-white/40 rounded-xl border border-[#cca785]/15">
+                            <span className="block text-lg font-bold font-mono text-slate-900 leading-none">
                               {ev.availableSeats}
                             </span>
-                            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">
+                            <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">
                               Seats Space
                             </span>
                           </div>
 
                           <button
                             onClick={() => handleBookSeat(ev.id)}
-                            className="w-full px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition-all text-center cursor-pointer"
+                            className="w-full px-4 py-2.5 bg-gradient-to-br from-white to-[#f5ebd6] hover:to-[#ebdcb7] text-black border border-[#e1d3bc]/65 font-bold text-xs rounded-xl shadow-md shadow-amber-900/5 transition-all text-center cursor-pointer"
                           >
                             Get pass 🎟️
                           </button>
@@ -411,19 +408,19 @@ export default function App() {
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl">
                   <span className="font-bold text-slate-800 dark:text-white block">Extracurricular Dean Office</span>
                   <span className="text-xs text-slate-500 block mt-1">PESCE Campus Main Building, Room 102</span>
-                  <span className="text-xs font-mono text-blue-600 dark:text-blue-400 block mt-1">+91 08232-220043</span>
+                  <span className="text-xs font-mono text-[#5c3e21] block mt-1">+91 08232-220043</span>
                 </div>
 
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl">
                   <span className="font-bold text-slate-800 dark:text-white block">Department IT Helpdesk</span>
                   <span className="text-xs text-slate-500 block mt-1">CSE building, Lab 4 Coordinator</span>
-                  <span className="text-xs font-mono text-blue-600 dark:text-blue-400 block mt-1">it.support@pesce.ac.in</span>
+                  <span className="text-xs font-mono text-[#5c3e21] block mt-1">it.support@pesce.ac.in</span>
                 </div>
 
                 <div className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl">
                   <span className="font-bold text-slate-800 dark:text-white block">Autonomous Controller</span>
                   <span className="text-xs text-slate-505 block mt-1">Autonomous Block, PES Mandya</span>
-                  <span className="text-xs font-mono text-blue-600 dark:text-blue-400 block mt-1">office@pescemandya.org</span>
+                  <span className="text-xs font-mono text-[#5c3e21] block mt-1">office@pescemandya.org</span>
                 </div>
               </div>
             </section>
@@ -438,7 +435,7 @@ export default function App() {
             {/* Header & filters block */}
             <div className="space-y-6">
               <div className="text-center sm:text-left">
-                <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Academic directories</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-amber-955 font-mono">Academic directories</span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-display">
                   PESCE Campus Clubs
                 </h2>
@@ -448,7 +445,7 @@ export default function App() {
               </div>
 
               {/* Filtering Controls Row */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-gradient-to-br from-white to-[#faf6ec] dark:from-white dark:to-[#faf6ec] p-4 rounded-2xl border border-[#cca785]/35 shadow-lg shadow-amber-955/5">
                 
                 {/* Categories filtering list */}
                 <div className="flex flex-wrap gap-1.5 justify-center sm:justify-start">
@@ -456,10 +453,10 @@ export default function App() {
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
                         selectedCategory === cat
-                          ? 'bg-blue-600 text-white shadow-sm'
-                          : 'text-slate-500 hover:text-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                          ? 'bg-gradient-to-br from-white to-[#f5ebd6] text-[#3c2214] border border-[#e1d3bc] shadow-md shadow-amber-900/10'
+                          : 'text-slate-700 dark:text-slate-800 hover:text-slate-950 dark:hover:text-slate-950 hover:bg-[#decbb7]/20'
                       }`}
                     >
                       {cat}
@@ -469,7 +466,7 @@ export default function App() {
 
                 {/* Input Search Block */}
                 <div className="relative w-full sm:w-64">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
                     <Search className="w-4 h-4" />
                   </div>
                   <input
@@ -477,7 +474,7 @@ export default function App() {
                     placeholder="Search Club Name or descriptive skills..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 font-medium"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-white border border-[#cca785]/40 text-slate-900 dark:text-slate-900 focus:outline-none focus:border-[#cca785] font-medium"
                   />
                 </div>
 
@@ -486,20 +483,20 @@ export default function App() {
 
             {/* Clubs list grid cards */}
             {filteredClubs.length === 0 ? (
-              <div className="text-center py-16 border-2 border-dashed border-slate-200 dark:border-slate-805 rounded-3xl bg-white dark:bg-slate-900">
+              <div className="text-center py-16 border-2 border-dashed border-[#cca785]/30 rounded-3xl bg-white">
                 <p className="text-sm text-slate-500 font-mono">No clubs matches listed parameters currently. Clear filters above.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {filteredClubs.map((club) => (
-                  <div key={club.id} className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
+                  <div key={club.id} className="bg-white rounded-3xl border border-[#cca785]/20 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
                     
                     <div>
                       {/* Banner of the club */}
                       <div className="h-32 bg-slate-100 relative overflow-hidden">
                         <img src={club.banner} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
-                        <span className="absolute bottom-3 left-4 px-2.5 py-0.5 rounded-full text-[9px] font-bold bg-blue-600/80 backdrop-blur-sm text-white uppercase tracking-wider">
+                        <span className="absolute bottom-3 left-4 px-2.5 py-0.5 rounded-full text-[9px] font-bold bg-white/90 text-black border border-[#e1d3bc]/65 shadow-md shadow-amber-950/10 uppercase tracking-wider">
                           {club.category}
                         </span>
                       </div>
@@ -510,28 +507,28 @@ export default function App() {
                           <div className="w-10 h-10 border border-slate-150 overflow-hidden rounded-xl bg-white shrink-0 shadow-sm mt-0.5">
                             <img src={club.logo} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                           </div>
-                          <h4 className="text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                          <h4 className="text-sm font-bold text-slate-900 leading-tight">
                             {club.name}
                           </h4>
                         </div>
 
-                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
+                        <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
                           {club.shortDescription}
                         </p>
 
-                        <div className="text-[10px] font-mono text-slate-400 bg-slate-50 dark:bg-slate-950 p-2 rounded-lg border border-slate-100 dark:border-slate-805/50">
+                        <div className="text-[10px] font-mono text-slate-500 bg-slate-50 p-2 rounded-lg border border-slate-100">
                           Eligibility: <span className="font-semibold">{club.requirements.substring(0, 38)}...</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="px-5.5 py-3.5 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 flex space-x-2">
+                    <div className="px-5.5 py-3.5 bg-slate-50 border-t border-slate-150 flex space-x-2">
                       <button
                         onClick={() => setSelectedClub(club)}
-                        className={`px-3 py-2 text-xs font-bold rounded-lg transition-all shadow-sm ${
+                        className={`px-3 py-2 text-xs font-bold rounded-lg transition-all shadow-sm cursor-pointer ${
                           isUserAccepted(club.id)
-                            ? "w-full bg-emerald-50 dark:bg-green-950/30 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-950 text-center"
-                            : "flex-1 bg-white dark:bg-slate-800 text-slate-705 dark:text-slate-300 border border-slate-200 dark:border-slate-750 hover:bg-slate-100"
+                            ? "w-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-center"
+                            : "flex-1 bg-white text-slate-700 border border-slate-200 hover:bg-slate-100"
                         }`}
                       >
                         {isUserAccepted(club.id) ? "View Details (Joined)" : "View Details"}
@@ -541,7 +538,7 @@ export default function App() {
                         <button
                           onClick={() => handleApplyClick(club)}
                           id={`apply-button-card-` + club.id}
-                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-all shadow-md shadow-blue-500/10 whitespace-nowrap"
+                          className="px-4 py-2 bg-gradient-to-br from-white to-[#f5ebd6] hover:to-[#ebdcb7] text-black border border-[#e1d3bc]/70 text-xs font-bold rounded-lg transition-all shadow-md shadow-amber-900/5 whitespace-nowrap cursor-pointer"
                         >
                           Apply to Join
                         </button>
@@ -586,46 +583,46 @@ export default function App() {
                   {upcomingEvents.map((ev) => {
                     const host = clubs.find(c => c.id === ev.club_id);
                     return (
-                      <div key={ev.id} className="p-5 bg-white dark:bg-slate-900 border border-slate-205 dark:border-slate-802 rounded-3xl shadow-sm flex flex-col justify-between gap-6 hover:shadow-md transition-all">
+                      <div key={ev.id} className="p-5 bg-gradient-to-br from-white to-[#faf7f2] border border-[#cca785]/20 rounded-3xl shadow-sm flex flex-col justify-between gap-6 hover:shadow-md transition-all">
                         <div className="space-y-3">
                           <div className="flex justify-between items-start">
-                            <span className="text-[10px] font-bold text-blue-600 uppercase font-mono tracking-wide truncate pr-4">
+                            <span className="text-[10px] font-bold text-amber-950 uppercase font-mono tracking-wide truncate pr-4">
                               Host: {host?.name || 'Academic Association'}
                             </span>
-                            <span className="inline-block shrink-0 px-2.5 py-0.5 rounded text-[9px] font-bold uppercase bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-350">
+                            <span className="inline-block shrink-0 px-2.5 py-0.5 rounded text-[9px] font-bold uppercase bg-white/80 text-black border border-[#cca785]/15">
                               PASS RESERVED: {ev.capacity - ev.availableSeats}/{ev.capacity}
                             </span>
                           </div>
 
-                          <h4 className="text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                          <h4 className="text-sm font-bold text-slate-900 leading-tight">
                             {ev.title}
                           </h4>
 
-                          <p className="text-xs text-slate-505 dark:text-slate-400 leading-relaxed font-normal">
+                          <p className="text-xs text-slate-600 leading-relaxed font-normal">
                             {ev.description}
                           </p>
 
-                          <div className="pt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-450 font-mono leading-relaxed">
+                          <div className="pt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 font-mono leading-relaxed">
                             <div className="flex items-center space-x-1">
-                              <Calendar className="w-3.5 h-3.5 text-blue-600" />
+                              <Calendar className="w-3.5 h-3.5 text-[#2b160a]" />
                               <span>{ev.date} at {ev.time}</span>
                             </div>
                             <div className="flex items-center space-x-1">
-                              <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                              <MapPin className="w-3.5 h-3.5 text-[#2b160a]" />
                               <span className="truncate">Venue: {ev.venue}</span>
                             </div>
                           </div>
                         </div>
 
                         {/* Booking actions */}
-                        <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center gap-4">
+                        <div className="pt-4 border-t border-slate-150 flex justify-between items-center gap-4">
                           <span className="text-[11px] font-mono text-slate-400">
                             Available Passes Left: {ev.availableSeats}
                           </span>
                           
                           <button
                             onClick={() => handleBookSeat(ev.id)}
-                            className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-lg transition-all shadow-sm"
+                            className="px-5 py-2 bg-gradient-to-br from-white to-[#f5ebd6] hover:to-[#ebdcb7] text-black border border-[#e1d3bc]/70 font-bold text-xs rounded-lg transition-all shadow-sm cursor-pointer"
                           >
                             Reserve Pass
                           </button>
@@ -672,11 +669,11 @@ export default function App() {
         {currentTab === 'about' && (
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 transition-all">
             <div className="text-center space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Academic Board of Students</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-display">
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-955 font-mono">Academic Board of Students</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
                 About Student Activities at PESCE
               </h2>
-              <p className="text-sm text-slate-500 font-normal max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm text-slate-600 font-normal max-w-xl mx-auto leading-relaxed">
                 PES College of Engineering (PESCE), Mandya, established in 1962, is an autonomous, premier engineering college sponsored by People&apos;s Education Society (R) Mandya.
               </p>
             </div>
@@ -684,26 +681,26 @@ export default function App() {
             {/* Visual cards milestones */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-xs">
               
-              <div className="p-5.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl space-y-3">
-                <div className="p-2.5 bg-blue-50 dark:bg-slate-800 rounded-xl text-blue-700 dark:text-blue-400 w-10 h-10 flex items-center justify-center">
-                  <BookmarkCheck className="w-5 h-5 animate-pulse" />
+              <div className="p-5.5 bg-gradient-to-br from-white to-[#faf7f2] border border-[#cca785]/20 rounded-3xl space-y-3">
+                <div className="p-2.5 bg-[#f5ebd6] rounded-xl text-amber-950 w-10 h-10 flex items-center justify-center">
+                  <BookmarkCheck className="w-5 h-5 animate-pulse text-amber-805" />
                 </div>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                <h4 className="text-sm font-bold text-slate-900">
                   Academic Autonomy & Accreditation
                 </h4>
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
-                  PESCE is permanently affiliated to Visvesvaraya Technological University (VTU), Belagavi, and is approved by AICTE. We possess stellar certifications including multiple programs accredited by the National Board of Accreditation (NBA) and NAAC with &apos;A&apos; Grade.
+                <p className="text-slate-600 leading-relaxed font-normal">
+                  PESCE is permanently affiliated to Visvesvaraya Technological University (VTU), Belagavi, and is approved by AICTE. We possess certifications including multiple programs accredited by the National Board of Accreditation (NBA) and NAAC with &apos;A&apos; Grade.
                 </p>
               </div>
 
-              <div className="p-5.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl space-y-3">
-                <div className="p-2.5 bg-indigo-50 dark:bg-slate-800 rounded-xl text-indigo-700 dark:text-indigo-400 w-10 h-10 flex items-center justify-center">
-                  <Award className="w-5 h-5" />
+              <div className="p-5.5 bg-gradient-to-br from-white to-[#faf7f2] border border-[#cca785]/20 rounded-3xl space-y-3">
+                <div className="p-2.5 bg-[#f5ebd6] rounded-xl text-amber-950 w-10 h-10 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-amber-805" />
                 </div>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                <h4 className="text-sm font-bold text-slate-900">
                   Extracurricular Growth & Credits
                 </h4>
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
+                <p className="text-slate-605 leading-relaxed font-normal">
                   Our curriculums integrate extramural student activities as credit markers under autonomous guidelines. Student leads and club coordinators gain VTU leadership credentials, fostering communication alongside core machine dynamics.
                 </p>
               </div>
@@ -711,18 +708,18 @@ export default function App() {
             </div>
 
             {/* Administrative statement from Super Admin */}
-            <div className="p-6 rounded-3xl bg-slate-100 dark:bg-slate-900 border border-slate-250 dark:border-slate-800 flex items-start space-x-4">
-              <div className="p-2 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 shrink-0">
-                <Building2 className="w-6 h-6 text-blue-600" />
+            <div className="p-6 rounded-3xl bg-gradient-to-br from-white to-[#faf7f2] border border-[#cca785]/25 flex items-start space-x-4 shadow-sm">
+              <div className="p-2 bg-white rounded-xl border border-[#cca785]/35 shrink-0">
+                <Building2 className="w-6 h-6 text-amber-900" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
                   Dean of Student Affairs Message
                 </h4>
-                <p className="text-xs text-slate-500 font-normal leading-relaxed italic pr-4">
+                <p className="text-xs text-slate-600 font-normal leading-relaxed italic pr-4">
                   &ldquo;Student clubs are the core hubs where technology is built, scripts are written, music is arranged and physical stamina is defined. We welcome computer science and mechanical minds to join Google developer tracks, mechanical racing cells, or sports collectives to raise the VTU sports flags and land engineering roles.&rdquo;
                 </p>
-                <span className="block text-[11px] font-bold text-slate-700 dark:text-slate-300 pt-1 font-display">
+                <span className="block text-[11px] font-bold text-slate-850 pt-1 font-display">
                   — Dr. Ramesh S., Dean of Student extramural affairs
                 </span>
               </div>

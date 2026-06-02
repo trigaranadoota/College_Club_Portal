@@ -107,7 +107,7 @@ export default function StudentDashboard({
         );
       default:
         return (
-          <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400 border border-blue-200 dark:border-blue-900">
+          <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-bold bg-[#decbb7]/30 text-amber-955 border border-[#cca785]">
             <Clock3 className="w-3.5 h-3.5" />
             <span>Pending</span>
           </span>
@@ -137,33 +137,33 @@ export default function StudentDashboard({
     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8 transition-colors duration-300 bg-slate-50 dark:bg-[#060a12] animate-fade-in">
       
       {/* Student Welcome Jumbotron */}
-      <div className="p-6 md:p-8 rounded-3xl hero-gradient text-white shadow-xl card-shadow mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
+      <div className="p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white to-[#f5ebd6] border border-[#e1d3bc]/70 text-slate-900 shadow-md mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
         {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
         
         <div className="relative z-10">
-          <span className="text-xs font-mono font-bold tracking-widest text-[#93c5fd] dark:text-blue-300 uppercase block mb-1">
+          <span className="text-xs font-mono font-bold tracking-widest text-[#5c3e21] uppercase block mb-1">
             Autonomous Student Terminal
           </span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold font-display">
-            Welcome back, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-indigo-100">{profile?.name}</span>
+          <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-black">
+            Welcome back, <span className="font-semibold text-black">{profile?.name}</span>
           </h1>
-          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-xs text-blue-100/90 font-mono">
-            <div>USN: <span className="text-white font-semibold">{profile?.usn}</span></div>
-            <div>Dept: <span className="text-white font-semibold">{profile?.branch}</span></div>
-            <div>Class: <span className="text-white font-semibold">{profile?.year}</span></div>
+          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-705 font-mono">
+            <div>USN: <span className="text-black font-semibold">{profile?.usn}</span></div>
+            <div>Dept: <span className="text-black font-semibold">{profile?.branch}</span></div>
+            <div>Class: <span className="text-black font-semibold">{profile?.year}</span></div>
           </div>
         </div>
 
-        <div className="relative z-10 flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-inner">
+        <div className="relative z-10 flex items-center space-x-3 bg-white/60 rounded-2xl p-4 border border-[#e1d3bc]/80 shadow-sm">
           <div className="text-center px-3">
-            <span className="block text-2xl font-bold font-mono text-white">{applications.length}</span>
-            <span className="text-[10px] text-blue-100 uppercase font-bold tracking-wider">Applied</span>
+            <span className="block text-2xl font-bold font-mono text-black">{applications.length}</span>
+            <span className="text-[10px] text-slate-600 uppercase font-bold tracking-wider">Applied</span>
           </div>
-          <div className="h-8 w-px bg-white/15" />
+          <div className="h-8 w-px bg-slate-300" />
           <div className="text-center px-3">
-            <span className="block text-2xl font-bold font-mono text-white">{joinedClubs.length}</span>
-            <span className="text-[10px] text-blue-100 uppercase font-bold tracking-wider font-sans">My Clubs</span>
+            <span className="block text-2xl font-bold font-mono text-black">{joinedClubs.length}</span>
+            <span className="text-[10px] text-[#2b160a] uppercase font-bold tracking-wider font-sans">My Clubs</span>
           </div>
         </div>
       </div>
@@ -176,26 +176,26 @@ export default function StudentDashboard({
           {/* Section: My Applications */}
           <div className="p-6 glass-effect border border-slate-205/40 dark:border-slate-800/40 rounded-3xl card-shadow">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider font-display flex items-center space-x-2">
-                <ClipboardList className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-base font-bold text-slate-900 uppercase tracking-wider font-display flex items-center space-x-2">
+                <ClipboardList className="w-5 h-5 text-[#3c2214]" />
                 <span>My Active Applications</span>
               </h3>
               <button 
                 onClick={() => onTabChange('clubs')}
-                className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                className="text-xs font-semibold text-amber-950 hover:underline cursor-pointer"
               >
                 Apply for more
               </button>
             </div>
 
             {applications.length === 0 ? (
-              <div className="text-center py-10 border border-slate-200/50 dark:border-slate-805/40 bg-slate-50/20 dark:bg-slate-900/10 rounded-2xl">
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+              <div className="text-center py-10 border border-[#cca785]/20 bg-slate-50/20 rounded-2xl">
+                <p className="text-sm text-slate-500">
                   You have not submitted any club applications yet.
                 </p>
                 <button
                   onClick={() => onTabChange('clubs')}
-                  className="mt-3 px-4 py-2 bg-blue-100 hover:bg-blue-150 text-blue-700 dark:bg-slate-800 dark:text-blue-400 rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                  className="mt-3 px-4 py-2 bg-gradient-to-br from-white to-[#f5ebd6] hover:to-[#ebdcb7] text-black border border-[#e1d3bc]/65 rounded-lg text-xs font-bold transition-colors cursor-pointer shadow-md shadow-amber-900/5"
                 >
                   Explore Active Clubs
                 </button>
@@ -212,8 +212,8 @@ export default function StudentDashboard({
                       onClick={() => setSelectedAppForTimeline(app)}
                       className={`p-4 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 ${
                         isCurrentTimeline 
-                          ? 'border-blue-500 bg-blue-50/15 dark:bg-blue-500/5 shadow-sm' 
-                          : 'border-slate-200/50 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white/40 dark:bg-slate-900/40'
+                          ? 'border-[#3c2214] bg-[#fcfbf8] shadow-sm' 
+                          : 'border-[#cca785]/20 hover:border-[#cca785]/45 bg-white/40'
                       }`}
                     >
                       <div className="flex items-start space-x-3">
@@ -273,7 +273,7 @@ export default function StudentDashboard({
                         {club?.category} Stream
                       </span>
                       <h3 className="text-base font-bold text-slate-900 dark:text-white mt-1">
-                        Timeline Tracker: <span className="text-blue-600 dark:text-blue-400 font-sans">{club?.name}</span>
+                        Timeline Tracker: <span className="text-amber-955 font-sans">{club?.name}</span>
                       </h3>
                       <p className="text-xs text-slate-500 mt-1">
                         Select any application card above to sync its live recruitment timeline.
@@ -364,8 +364,8 @@ export default function StudentDashboard({
 
           {/* Section: My Clubs */}
           <div className="p-6 glass-effect border border-slate-205/40 dark:border-slate-800/40 rounded-3xl card-shadow">
-            <h3 className="text-base font-bold text-slate-900 dark:text-white uppercase tracking-wider font-display flex items-center space-x-2 mb-6">
-              <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <h3 className="text-base font-bold text-slate-900 uppercase tracking-wider font-display flex items-center space-x-2 mb-6">
+              <Users className="w-5 h-5 text-[#3c2214]" />
               <span>Joined Organizations ({joinedClubs.length})</span>
             </h3>
 
@@ -388,17 +388,17 @@ export default function StudentDashboard({
                           <img src={club.logo} alt="" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                         </div>
                         <div>
-                          <span className="text-[9px] font-bold text-blue-600 dark:text-blue-400 uppercase font-mono tracking-wider">
+                          <span className="text-[9px] font-bold text-amber-950 uppercase font-mono tracking-wider">
                             Active Card
                           </span>
-                          <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 block truncate leading-tight">
+                          <h4 className="text-sm font-semibold text-slate-900 block truncate leading-tight">
                             {club.name}
                           </h4>
                         </div>
                       </div>
 
                       <div className="text-right">
-                        <span className="inline-block px-2 py-0.5 text-[9px] font-bold tracking-wider uppercase bg-blue-100 text-blue-850 dark:bg-slate-800 dark:text-blue-400 rounded-md">
+                        <span className="inline-block px-2 py-0.5 text-[9px] font-bold tracking-wider uppercase bg-[#f5ebd6] text-black rounded-md">
                           {membership?.role || 'Member'}
                         </span>
                       </div>
@@ -415,16 +415,16 @@ export default function StudentDashboard({
         <div className="space-y-8">
           
           {/* Section: Live Announcements Notification Hub */}
-          <div className="p-6 glass-effect border border-slate-205/40 dark:border-slate-800/40 rounded-3xl card-shadow">
+          <div className="p-6 bg-white border border-[#cca785]/20 rounded-3xl card-shadow">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-sm font-bold text-slate-905 dark:text-slate-50 uppercase tracking-wider font-display flex items-center space-x-2">
-                <Bell className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400" />
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider font-display flex items-center space-x-2">
+                <Bell className="w-4.5 h-4.5 text-amber-955" />
                 <span>Inbox Alerts ({notifications.length})</span>
               </h3>
               {notifications.some(n => !n.read) && (
                 <button 
                   onClick={handleMarkAllRead}
-                  className="text-[10px] font-bold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                  className="text-[10px] font-bold text-amber-950 hover:underline cursor-pointer"
                 >
                   Clear Unread
                 </button>
@@ -440,13 +440,13 @@ export default function StudentDashboard({
                 {notifications.map((notif) => (
                   <div 
                     key={notif.id}
-                    className={`p-3.5 rounded-xl border border-slate-100 dark:border-slate-800/80 transition-colors relative flex justify-between items-start ${
-                      !notif.read ? 'bg-blue-50/30 dark:bg-slate-800/20 border-l-2 border-l-blue-500' : 'bg-slate-50/20 dark:bg-slate-900/10'
+                    className={`p-3.5 rounded-xl border border-slate-100 transition-colors relative flex justify-between items-start ${
+                      !notif.read ? 'bg-[#faf7f2] border-l-2 border-l-[#3c2214]' : 'bg-slate-50/40'
                     }`}
                   >
                     <div>
                       <span className={`text-[10px] font-bold tracking-wide uppercase ${
-                        notif.type === 'success' ? 'text-green-600' : notif.type === 'alert' ? 'text-red-500' : 'text-blue-600'
+                        notif.type === 'success' ? 'text-green-600' : notif.type === 'alert' ? 'text-red-500' : 'text-amber-950'
                       }`}>
                         {notif.title}
                       </span>
@@ -473,8 +473,8 @@ export default function StudentDashboard({
 
           {/* Section: Upcoming Events Related to Joined Clubs */}
           <div className="p-6 glass-effect border border-slate-205/40 dark:border-slate-800/40 rounded-3xl card-shadow">
-            <h3 className="text-sm font-bold text-slate-905 dark:text-slate-50 uppercase tracking-wider font-display flex items-center space-x-2 mb-4">
-              <Calendar className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400" />
+            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider font-display flex items-center space-x-2 mb-4">
+              <Calendar className="w-4.5 h-4.5 text-[#3c2214]" />
               <span>My Clubs Activity ({clubSpecificEvents.length})</span>
             </h3>
 
@@ -497,7 +497,7 @@ export default function StudentDashboard({
                           <span className="text-[9px] font-bold text-slate-400 font-mono tracking-wide truncate">
                             {club?.name}
                           </span>
-                          <span className="text-[10px] font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-slate-800 px-1.5 py-0.5 rounded">
+                          <span className="text-[10px] font-mono text-amber-900 bg-amber-50/50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded border border-amber-900/10">
                             {ev.visibility}
                           </span>
                         </div>
@@ -511,20 +511,20 @@ export default function StudentDashboard({
                         </p>
                       </div>
 
-                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 space-y-1 font-mono">
+                      <div className="mt-4 pt-3 border-t border-slate-100 text-[10px] text-slate-400 space-y-1 font-mono">
                         <div className="flex items-center space-x-1.5">
-                          <Clock className="w-3 h-3 text-blue-500 shrink-0" />
+                          <Clock className="w-3 h-3 text-amber-955 shrink-0" />
                           <span>{ev.date} at {ev.time}</span>
                         </div>
                         <div className="flex items-center space-x-1.5">
-                          <MapPin className="w-3 h-3 text-blue-500 shrink-0" />
+                          <MapPin className="w-3 h-3 text-amber-955 shrink-0" />
                           <span className="truncate">{ev.venue}</span>
                         </div>
                       </div>
 
                       <button
                         onClick={() => onBookSeat(ev.id)}
-                        className="w-full mt-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl transition-all"
+                        className="w-full mt-3 py-2 bg-gradient-to-br from-white to-[#f5ebd6] hover:to-[#ebdcb7] text-black border border-[#e1d3bc]/70 font-semibold text-xs rounded-xl transition-all cursor-pointer shadow-sm"
                       >
                         Reserve Pass
                       </button>

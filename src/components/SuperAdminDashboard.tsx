@@ -268,7 +268,7 @@ export default function SuperAdminDashboard({ onSuccess, onTabChange }: SuperAdm
               </div>
 
               <div className="p-5.5 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest font-mono">Total Student apps</span>
+                <span className="text-[10px] font-bold text-amber-955 uppercase tracking-widest font-mono">Total Student apps</span>
                 <p className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 font-mono">{totalApps}</p>
                 <div className="text-[11px] text-slate-450 mt-1">Of which <span className="font-semibold">{pendingApps}</span> are currently Pending</div>
               </div>
@@ -507,7 +507,7 @@ export default function SuperAdminDashboard({ onSuccess, onTabChange }: SuperAdm
                             app.status === 'Accepted' ? 'bg-green-100 text-green-800 dark:bg-green-950/20' :
                             app.status === 'Shortlisted' ? 'bg-amber-100 text-amber-805 dark:bg-amber-955/20' :
                             app.status === 'Rejected' ? 'bg-red-105 text-red-800' :
-                            'bg-blue-100 text-blue-800'
+                            'bg-[#decbb7]/40 text-[#5c3e21]'
                           }`}>
                             {app.status}
                           </span>

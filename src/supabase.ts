@@ -1,6 +1,20 @@
+import { createClient } from '@supabase/supabase-js';
 import { 
   User, Club, Admin, Application, Member, Event, Notification, UserRole, MemberRole, ApplicationStatus 
 } from './types';
+
+// Read configuration from environment variables
+const SUPABASE_URL = (import.meta as any).env?.VITE_SUPABASE_URL || '';
+const SUPABASE_ANON_KEY = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
+
+export const isSupabaseConfigured = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
+
+// Create real client (recovers safely from missing configuration to prevent crash on startup)
+export const supabase = createClient(
+  SUPABASE_URL || 'https://placeholder-project.supabase.co',
+  SUPABASE_ANON_KEY || 'placeholder-anon-key'
+);
+
 
 // Storage keys
 const KEYS = {
@@ -659,13 +673,17 @@ export const supabaseMock = {
   }> {
     initDB();
     const email = emailString.trim().toLowerCase();
-    
+
     // 1. Check if they are admins (Super Admin or Club Admin)
     const admins = getStored<Admin[]>(KEYS.ADMINS, INITIAL_ADMINS);
     const matchedAdmin = admins.find(a => a.email.toLowerCase() === email);
     
     if (matchedAdmin) {
-      // In realistic testing, accommodate any password or a universal "admin123" / "super123" for safety
+      // Validate requested password for Subba Rao (s.ubbarao78925@gmail.com)
+      if (email === 's.ubbarao78925@gmail.com' && passwordString !== '123456789') {
+        return { role: 'club_admin', error: 'Incorrect password for Ennovate Admin profile. Please use 123456789.' };
+      }
+      
       const currentRole: UserRole = matchedAdmin.role;
       const session = {
         role: currentRole,
@@ -719,6 +737,103 @@ export const supabaseMock = {
     }
 
     return { role: 'student', error: 'Please enter a valid email address.' };
+  },
+
+  async sendOTP(emailString: string): Promise<{ success: boolean; code: string; error?: string }> {
+    initDB();
+    const email = emailString.trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return { success: false, code: '', error: 'Please enter a valid email address.' };
+    }
+
+    // Generate a beautiful 6-digit numeric OTP code
+    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    
+    // Cache the OTP code in LocalStorage with time of generation
+    const otps = JSON.parse(localStorage.getItem('pesce_otp_cache') || '{}');
+    otps[email] = { code, expiresAt: Date.now() + 10 * 60 * 1000 }; // 10 min expiration
+    localStorage.setItem('pesce_otp_cache', JSON.stringify(otps));
+
+    console.log(`[Supabase OTP Verification] Magic login code sent to ${email}: ${code}`);
+    return { success: true, code };
+  },
+
+  async verifyOTP(emailString: string, code: string): Promise<{ 
+    user?: User; 
+    admin?: Admin; 
+    role: UserRole; 
+    error?: string;
+  }> {
+    initDB();
+    const email = emailString.trim().toLowerCase();
+    const otps = JSON.parse(localStorage.getItem('pesce_otp_cache') || '{}');
+    const record = otps[email];
+
+    if (!record || record.code !== code.trim()) {
+      return { role: 'student', error: 'Invalid or incorrect verification OTP code.' };
+    }
+
+    if (Date.now() > record.expiresAt) {
+      return { role: 'student', error: 'The email verification OTP code has expired. Please request a new one.' };
+    }
+
+    // Remove OTP on successful validation
+    delete otps[email];
+    localStorage.setItem('pesce_otp_cache', JSON.stringify(otps));
+
+    // Sign in the matched role or create user
+    const admins = getStored<Admin[]>(KEYS.ADMINS, INITIAL_ADMINS);
+    const matchedAdmin = admins.find(a => a.email.toLowerCase() === email);
+    
+    if (matchedAdmin) {
+      const currentRole: UserRole = matchedAdmin.role;
+      const session = {
+        role: currentRole,
+        adminProfile: matchedAdmin,
+        timestamp: new Date().toISOString()
+      };
+      saveStored(KEYS.CURRENT_USER_SESSION, session);
+      return { admin: matchedAdmin, role: currentRole };
+    }
+
+    const users = getStored<User[]>(KEYS.USERS, INITIAL_USERS);
+    const matchedUser = users.find(u => u.email.toLowerCase() === email);
+
+    if (matchedUser) {
+      const session = {
+        role: 'student' as UserRole,
+        studentProfile: matchedUser,
+        timestamp: new Date().toISOString()
+      };
+      saveStored(KEYS.CURRENT_USER_SESSION, session);
+      return { user: matchedUser, role: 'student' };
+    }
+
+    // Auto-register student on OTP signup
+    const nameParts = email.split('@')[0].split(/[\._\-]/);
+    const simulatedName = nameParts.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+    const simulatedUSN = `4PS23CS${Math.floor(100 + Math.random() * 899)}`;
+    
+    const newUser: User = {
+      id: 'student_' + Math.random().toString(36).substr(2, 9),
+      name: simulatedName || 'New Student',
+      email: email,
+      usn: simulatedUSN,
+      branch: 'Computer Science and Engineering',
+      year: '2nd Year'
+    };
+
+    const updatedUsers = [...users, newUser];
+    saveStored(KEYS.USERS, updatedUsers);
+
+    const session = {
+      role: 'student' as UserRole,
+      studentProfile: newUser,
+      timestamp: new Date().toISOString()
+    };
+    saveStored(KEYS.CURRENT_USER_SESSION, session);
+    return { user: newUser, role: 'student' };
   },
 
   getCurrentSession() {

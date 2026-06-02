@@ -1,5 +1,4 @@
 import { 
-  Building2, 
   MapPin, 
   Mail, 
   Phone, 
@@ -15,19 +14,16 @@ export default function Footer() {
           {/* Main info */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-500 text-white shadow-md">
-                <Building2 className="w-5 h-5" />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white font-display">
+              <span className="text-lg font-bold tracking-tight text-slate-900 font-display">
                 PESCE Mandya
               </span>
             </div>
             
-            <p className="text-sm leading-relaxed max-w-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm leading-relaxed max-w-sm text-slate-500">
               PES College of Engineering, Mandya is an autonomous institution under Visvesvaraya Technological University (VTU), Belagavi. Established in 1962, PESCE is committed to creating top-tier engineering talent and fostering holistic student leadership through vibrant clubs.
             </p>
             
-            <div className="text-xs font-mono text-slate-400 dark:text-slate-500 space-y-1">
+            <div className="text-xs font-mono text-slate-400 space-y-1">
               <div>• AICTE Approved Autonomous Institution</div>
               <div>• Accredited by NBA and NAAC with &apos;A&apos; Grade</div>
               <div>• Supported by TEQIP World-Bank Grants</div>
@@ -36,23 +32,23 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900 dark:text-white font-display mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900 font-display mb-4">
               Contact Office
             </h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-500 dark:text-slate-400">
+                <MapPin className="w-4 h-4 text-amber-955 flex-shrink-0 mt-0.5" />
+                <span className="text-slate-500">
                   PESCE Campus, Mandya - 571401, Karnataka, India
                 </span>
               </li>
               <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <span className="text-slate-500 dark:text-slate-400">+91 08232-220043</span>
+                <Phone className="w-4 h-4 text-amber-955 flex-shrink-0" />
+                <span className="text-slate-500">+91 08232-220043</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <a href="mailto:office@pescemandya.org" className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors text-slate-500 dark:text-slate-400">
+                <Mail className="w-4 h-4 text-amber-955 flex-shrink-0" />
+                <a href="mailto:office@pescemandya.org" className="hover:text-amber-955 hover:underline transition-colors text-slate-500">
                   office@pescemandya.org
                 </a>
               </li>
@@ -61,7 +57,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900 dark:text-white font-display mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900 font-display mb-4">
               Academic Resources
             </h4>
             <ul className="space-y-2 text-sm flex flex-col">
@@ -70,7 +66,7 @@ export default function Footer() {
                   href="https://pescemandya.org" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="inline-flex items-center space-x-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="inline-flex items-center space-x-1 hover:text-amber-955 transition-colors"
                 >
                   <span>Official College Site</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -79,7 +75,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="#clubs" 
-                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="hover:text-amber-955 transition-colors"
                 >
                   Student Club Affiliations
                 </a>
@@ -87,7 +83,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="#events" 
-                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="hover:text-amber-955 transition-colors"
                 >
                   University Event Calendar
                 </a>
@@ -95,7 +91,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="#auth" 
-                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="hover:text-amber-955 transition-colors"
                 >
                   Student Counseling & Staff logins
                 </a>
